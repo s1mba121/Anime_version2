@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'main/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/catalog_aside.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Hahmlet&family=Inter:wght@500;600;700;900&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet&family=Inter:wght@700;900&display=swap" rel="stylesheet">
+    <script src="{% static 'main/libs/gsap/gsap.min.js' %}" defer></script>
+    <script src="{% static 'main/libs/gsap/ScrollTrigger.min.js' %}" defer></script>
+    <script src="{% static 'main/libs/gsap/ScrollSmoother.min.js' %}" defer></script>
+    <script src="{% static 'main/js/main.js' %}" defer></script>
+    <script src="{% static 'main/js/listeners.js' %}" defer></script>
+    <script src="https://kit.fontawesome.com/fde982502f.js" crossorigin="anonymous" defer></script>
+    <script src="{% static 'main/js/dropdown.js' %}" defer></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

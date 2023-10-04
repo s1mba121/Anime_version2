@@ -1,0 +1,55 @@
+.anime_download h1 {
+    margin: 0;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    position: relative;
+    top: 34px;
+    left: 32px;
+}
+.remove {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: Comfortaa;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    background: none;
+    border: none;
+
+    position: relative;
+    top: -267px;
+    left: 1258px;
+
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+.remove:hover {
+    color: rgba(255, 255, 255, 0.65);
+}
+.downloaded {
+    margin: 0;
+    width: 207.802px;
+    height: 300.4px;
+    border-radius: 15px;
+    background: url("../img/cart.png");
+    background-size: cover;
+    border: none;
+
+    position: relative;
+    top: 61px;
+    left: -119px;
+    margin-right: 24px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+.downloaded:hover {
+    opacity: 0.1;
+}

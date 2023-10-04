@@ -1,0 +1,53 @@
+{% extends 'catalog/catalog.html' %}
+
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+
+<nav class="nav_nav">
+    <div class="nav_logo">
+        <img src="{% static 'main/img/Ellipse 1636.svg' %}" alt="">
+        <h1>Ao</h1>
+        <h2>Spa</h2>
+    </div>
+    <ul class="nav_ul">
+        <a href="{% url 'main' %}">Главная</a>
+        <a href="{% url 'catalog_none' %}">Каталог</a>
+        <a href="">Команда</a>
+        <a href="">Помочь проекту</a>
+    </ul>
+    <div class="search">
+        <button class="search_button"><img src="{% static 'main/img/search.png' %}" alt=""></button>
+        <input class="nav_input" type="text" placeholder="Поиск...">
+    </div>
+    <a class="notification" href=""><img src="{% static 'main/img/colocol.png' %}" alt=""></a>
+    {% if user.is_authenticated != True %}
+        <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
+    {% else %}
+        <button class="nav_profile"><a href="{% url 'profile' %}">Профиль</a></button>
+    {% endif %}
+    
+</nav>
+<main>
+    <aside>
+        <div class="grid-container">
+            {% for i in data %}
+
+                <div class="grid-item" style=
+                "
+                background: url({{i.image.url}});
+                background-size: cover;
+                ">
+                
+                <div class="grid-text"><a href="{% url 'detail' i.title 1 %}"></a></div>
+
+                </div>
+
+            {% endfor %}
+        </div>
+    </aside>
+</main>
+
+{% endblock %}

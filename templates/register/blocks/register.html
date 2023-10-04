@@ -1,0 +1,46 @@
+{% extends 'register/register.html' %}
+
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="left">
+    <div class="wrapper">
+            <div class="reg">
+                <h1>Регистрация аккаунта</h1>
+                <h2>Появились трудности в регистрации? <br>Оставьте тикет и мы поможем вам.</h2>
+                <form method="post">
+
+                    {{form.errors}}
+
+                    {% csrf_token %}
+
+                    <div class="input_box">
+                        <span class="icon"></span>
+                        <input type="text" name="username" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input_box">
+                        <span class="icon"></span>
+                        <input type="password" name="password1" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="input_box">
+                        <span class="icon"></span>
+                        <input type="password" name="password2" required>
+                        <label>Confirm password</label>
+                    </div>
+                    <button type="submit" class="btn">Зарегистрироваться</button>
+                    <div class="login_link">
+                        <p>У вас уже есть учетная запись?<a href="{% url 'login' %}" class="register-link">Sign in</a></p>
+                    </div>
+                    <div class="line"></div>
+                    <h3>Sign up with your social media account</h3>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

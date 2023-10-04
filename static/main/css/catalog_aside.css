@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: #101010;
+}
+aside {
+    position: absolute;
+    display: flex;
+    width: 1393px;
+    top: 192px;
+    left: 80px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 32px; /* Расстояние между элементами */
+}
+
+  /* Определяем стили элементов сетки */
+.grid-item {
+    color: #fff; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+
+    width: 253px;
+    height: 365px;
+
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.64) 75.52%, rgba(0, 0, 0, 0.75) 88.54%, rgba(0, 0, 0, 0.85) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat;
+
+    transition: scale .4s ease;
+    cursor: pointer;
+}
+.grid-item:hover {
+    scale: 1.1;
+}
+.grid-text {
+    position: absolute;
+    font-size: 11px; /* Размер текста */
+    text-align: center; /* Выравнивание текста по центру */
+
+    margin-top: 0px;
+    width: 253px;
+    height: 365px;
+}
+.grid-text a {
+    position: relative;
+    display: block;
+    margin-top: 0px;
+    width: 253px;
+    height: 365px;
+}

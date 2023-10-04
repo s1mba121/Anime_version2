@@ -1,0 +1,237 @@
+{% extends 'detail/anime.html' %}
+
+{% load static %}
+
+{% block script %}  
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+{% endblock %}
+
+{% block title %}{{anime.title}}{% endblock %}
+
+{% block content %}
+
+<div class="wraper">
+    <div class="content">
+        <div class="bg"></div>
+        <nav class="nav">
+            <div class="container">
+                <a href="{% url 'main' %}"><img class="logo" src="{% static 'main/img/logo.png' %}" alt=""></a>
+                <ul>
+                    <li class="link active-link"><a href="{% url 'catalog_none' %}">Аниме</a></li>
+                    <li class="link"><a href="#">Релизы</a></li>
+                    <li class="link"><a href="#">Новинки</a></li>
+                    <li class="link"><a href="#">Коллекции</a></li>
+                    <li class="link"><a href="#"><i class="fa-solid fa-cube"></i> Рандом</a></li>
+                </ul>
+                <div class="header-blocks">
+                    <div class="search">
+                        <i class="fa-solid fa-magnifying-glass" id="button"></i>
+                        <input type="text">
+                    </div>
+                    <span>/</span>
+                    {% if user.is_authenticated != True %}
+                        <button class="login"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i> Войти</a></button>
+                    {% else %}
+                        <button class="login"><a href="{% url 'profile' %}">Профиль</a></button>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="container">
+                <div class="main-card">
+                    <div class="block">
+                        <img src="{{anime.image.url}}" alt="">
+                    </div>
+                    <div class="content-header">
+                        <h1>{{anime.title}}</h1>
+                        <div class="star">
+                            <ul class="info">
+                                <li><p><i class="fa-solid fa-star"></i>9 . 9</p></li>
+                                <li>2023</li>
+                                <li>1-8 серий</li>
+                                <li><i class="fa-solid fa-play"></i> Rus, Eng</li>
+                                <li>14+</li>
+                            </ul>
+                        </div>
+                        <ul class="static">
+                            <li>Название: {{anime.title}}</li>
+                            <li>Оценка: 9.9</li>
+                            <li>Год выпуска: 2022</li>
+                            <li>Сезонов: 3</li>
+                            <li>Серий: 26</li>
+                            <li>Краткое описание: описание</li>
+                        </ul>
+                        <div class="buttons-header-detail">
+                            <button class="wathing"><a href="#">Смотреть онлайн</a></button>
+                            <button class="to-w"><a href="#">Трейлер</a></button>
+                            <button class="watched"><a href="#"><i class="fa-solid fa-bookmark"></i></a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail">
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="#" class="li1">Описание</a></li>
+                            <li><a href="#" class="li2">Персонажи</a></li>
+                        </ul>
+                    </nav>
+                    <main>
+                        <div class="display">
+                            <div class="description">
+                                <p class="desc">{{description}}</p>
+                                <p class="des" id="next">Подробное описание</p>
+                            </div>
+                            <div class="stars">
+                                <h1>Поставьте оценку</h1>
+                                <p>Оценки поднимают рейтинг и просмотры</p>
+                                <div class="stars-icons">
+                                    <ul>
+                                        <li><i class="fa-solid fa-star star1"></i></li>
+                                        <li><i class="fa-solid fa-star star2"></i></li>
+                                        <li><i class="fa-solid fa-star star3"></i></li>
+                                        <li><i class="fa-solid fa-star star4"></i></li>
+                                        <li><i class="fa-solid fa-star star5"></i></li>
+                                        <li><i class="fa-solid fa-star star6"></i></li>
+                                        <li><i class="fa-solid fa-star star7"></i></li>
+                                        <li><i class="fa-solid fa-star star8"></i></li>
+                                        <li><i class="fa-solid fa-star star9"></i></li>
+                                        <li><i class="fa-solid fa-star star10"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <div class="player">
+                        <video controls class="player-controll"></video>
+                        <script>
+                            const video = document.querySelector(".player-controll")
+
+                            if (Hls.isSupported()) {
+                                var hls = new Hls()
+                                hls.loadSource("https://cache.libria.fun{{url}}")
+                                hls.attachMedia(video)
+                            } else if (video.canPlayType("aplication/vnd.apple.mpegurl")) {
+                                video.src = "https://cache.libria.fun{{url}}"
+                                video.addEventListener("loadedmetadata" , () => {
+                                    video.play()
+                                })
+                            }
+                        </script>
+                        <div class="controls">
+                            <div class="select">
+                                <div class="oz">
+                                    <select name="" id="">
+                                        <option value="">Озвучка: AniDUB</option>
+                                    </select>
+                                </div>
+                                <div class="seria">
+                                    <select name="" id="">
+                                        {% for i in seria %}
+                                            <option value="">Серия: {{i}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="information-header">
+                    <div class="lists">
+                        <ul>
+                            <h1>Информация</h1>
+                            <div class="block-info">
+                                <li class="color">Страна:</li>
+                                <li>Япония</li>
+                            </div>
+                            <div class="block-info">
+                                <li class="color">Жанр:</li>
+                                <li>{{genres}}</li>
+                            </div>
+                            <div class="block-info">
+                                <li class="color">Премьера:</li>
+                                <li>{{anime.premiere}}</li>
+                            </div>
+                        </ul>
+                        <ul>
+                            <h1>Съёмочная группа</h1>
+                            <div class="block-info">
+                                <li class="color">Режисер:</li>
+                                <li>{{anime.director}}</li>
+                            </div>
+                            <div class="block-info">
+                                <li class="color">Актеры:</li>
+                                <li>Ёко Хикаса, Томокадзу Сугита</li>
+                            </div>
+                            <div class="block-info">
+                                <li class="color">Сценаристы:</li>
+                                <li>Гигаэмон Итикава, Гидо Амагакурэ</li>
+                            </div>
+                        </ul>
+                        <ul>
+                            <h1>Звуки и субтитры</h1>
+                            <div class="block-info">
+                                <li class="color">Аудиодорожки:</li>
+                                <li>{{anime.audio_tracks}}</li>
+                            </div>
+                            <div class="block-info">
+                                <li class="color">Субтитры:</li>
+                                <li>{{anime.subtitles}}</li>
+                            </div>
+                            <div class="block-info">
+                                <li class="color">Качество:</li>
+                                <li>SD, HD, Full HD</li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="comments">
+            <form action="{% url 'comment' anime.title %}" method="POST">
+                {% csrf_token %}
+                <h1>Коментарии</h1>
+                <input type="text" required name="comment" class="comment">
+                <button type="submit"><p>t</p><img src="{% static 'main/img/btn-img.png' %}" alt=""></button>
+            </form>
+            {% for i in comments %}
+                <p class="com">{{i.comment}}</p>
+            {% endfor %}
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="blocks-footer">
+                    <ul>
+                        <h1><img src="{% static 'main/img/logo-footer.png' %}" alt=""></h1>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Соглашение</a></li>
+                        <li><a href="#">Реклама</a></li>
+                        <li><a href="#">Заявка в команду</a></li>
+                    </ul>
+                    <ul>
+                        <h1>Помощь</h1>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="#">Востановление данных</a></li>
+                        <li><a href="#">Заказчикам</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                    <ul>
+                        <h1>Другое</h1>
+                        <li><a href="#">Донат</a></li>
+                        <li><a href="#">Жалоба</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pol">
+                <p>
+                    Сайт не несёт ответственности за его содержимое и<br>материал. В случае недопустимого содержимого,<br>отправьте нам письмо © «Kurosawa» 2022<br><a href="#">Политика конфидициальности</a>, <a href="#">условия использования</a>
+                </p>
+            </div>
+        </footer> 
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,309 @@
+body
+{
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background: #101010;
+    display: flex;
+}
+
+/* -> Aside */
+
+aside
+{
+    width: 43.75%;
+    height: 100%;
+    background: url("../img/aside-bg.png");
+    background-size: cover;
+
+    position: relative;
+    display: block;
+}
+
+/* -> Main */
+
+main
+{
+    width: 56.25%;
+    height: 100%;
+    text-align: center;
+}
+
+/* -> Header */
+
+header
+{
+    width: 1080px;
+    height: 118px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    padding-top: 79px;
+}
+
+.back
+{
+    width: 31px;
+    height: 31px;
+    border-radius: 5px;
+    background: #161616;
+
+    position: relative;
+    left: 81px;
+    margin-right: 380px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.back svg
+{
+    width: 12px;
+    height: 10px;
+    transform: rotate(90deg);
+}
+
+/* -> Logo */
+
+.logo
+{
+    width: 79px;
+    height: 39px;
+    display: flex;
+}
+
+.logo_titles
+{
+    position: relative;
+    top: 3px;
+    left: 6px;
+}
+
+.logo_titles h1
+{
+    color: #FFF;
+    font-family: Comfortaa;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 108%; /* 17.28px */
+    margin: 0;
+}
+
+.logo_titles h2
+{
+    color: #A2D71B;
+    font-family: Comfortaa;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 108%; /* 17.28px */
+    margin: 0;
+}
+
+.logo_image
+{
+    width: 39px;
+    height: 39px;
+    border-radius: 39px;
+    background: url("../img/logo-img.jfif");
+    background-size: cover;
+}
+
+/* -> Auth */
+
+.auth
+{
+    position: relative;
+
+    width: 499px;
+    height: 500px;
+
+    top: 68px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    text-align: center;
+}
+
+.title
+{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin-bottom: 34px;
+}
+.login
+{
+    width: 499px;
+    height: 54px;
+
+    border-radius: 10px;
+    background: #161616;
+
+    margin-bottom: 17px;
+
+    border: none;
+}
+
+.login[type="text"]
+{
+    color: #5B5B5B;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.login[type="text"]:focus
+{
+    outline: none;
+}
+.login::placeholder
+{
+    position: relative;
+    left: 15px;
+}
+
+.password
+{
+    width: 499px;
+    height: 54px;
+
+    border-radius: 10px;
+    background: #161616;
+
+    border: none;
+
+    margin-bottom: 24px;
+}
+
+.password[type="password"]
+{
+    color: #5B5B5B;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.password::placeholder
+{
+    position: relative;
+    left: 15px;
+}
+
+.go
+{
+    color: #49B466;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    width: 499px;
+    height: 54px;
+
+    border-radius: 10px;
+    background: #1A231C;
+
+    border: none;
+
+    cursor: pointer;
+
+    margin-bottom: 19px;
+}
+
+.forgot_password
+{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    text-decoration: none;
+}
+
+.or
+{
+    margin-top: 37px;
+    margin-bottom: 28px;
+
+    color: #9B9B9B;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.reg
+{
+    color: #7C7C7C;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.reg button
+{
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;;
+}
+/* Social */
+.social
+{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 262px;
+    height: 55px;
+
+
+    margin-bottom: 26px;
+}
+
+.social a {
+    display: inline-flex;
+    width: 55px;
+    height: 40px;
+
+    border-radius: 8px;
+    background: #2D2D2D;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
