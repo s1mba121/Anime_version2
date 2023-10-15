@@ -27,7 +27,7 @@
         {% if user.is_authenticated != True %}
             <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
         {% else %}
-            <button class="nav_profile"><a href="{% url 'profile' %}">Профиль</a></button>
+            <a class="nav_profile" href="{% url 'profile' %}"><img src="{% static 'main/img/Ellipse 1637.png' %}" alt=""></a>
         {% endif %}
         
     </nav>
@@ -58,11 +58,11 @@
 </div>
 <div class="profile_block">
     <div class="logo"><img src="{% static 'main/img/logo.png' %}" alt=""></div>
-    <a class="settings" href="profile_settings.html"><img src="img/settings.png" alt=""></a>
+    <a class="settings" href="profile_settings.html"><img src="{% static 'main/img/settings.png' %}" alt=""></a>
     <h1>{{user.username}}</h1>
     <h2>Отсутствует описание</h2>
-    <div class="admin"><h3>Администратор</h3></div>
-    <h4>Дата регистрации {{user.date_joined}}</h4>
+    <div class="admin"><h3>{{ status }}</h3></div>
+    <h4>Дата регистрации {{ user.date_joined|date:"d.m.Y" }}</h4>
     <div class="social">
         <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="37" height="36" viewBox="0 0 37 36" fill="none">
             <g opacity="0.4">

@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def detail(request , title , seria):
     try:
-        url = f"https://api.anilibria.tv/v2/searchTitles?search={title}"
+        url = f"https://api.anilibria.tv/v3/searchTitles?search={title}"
         req = requests.get(url)
         j = json.loads(req.text)
         anime = List.objects.get(title = title)
@@ -21,7 +21,7 @@ def detail(request , title , seria):
     
     count = 0
     seria_data = []
-    range_j = j[0]["type"]["series"]
+    range_j = j["list"][0]["type"]["episodes"]
     
     for i in range(range_j):
         if count <= range_j:
@@ -34,10 +34,10 @@ def detail(request , title , seria):
         "anime": anime,
         "comments": comments,
         "seria": seria_data,
-        "year": j[0]["season"]["year"],
-        "genres": j[0]['genres'][0],
-        "description": j[0]["description"],
-        "url": j[0]["player"]["playlist"][seria]["hls"]["fhd"],
+        "year": j["list"][0]["season"]["year"],
+        "genres": j["list"][0]['genres'][0],
+        "description": j["list"][0]["description"],
+        "url": j["list"][0]["player"]["list"][seria]["hls"]["fhd"],
     }
     
     return render(request , 'detail/blocks/anime.html' , data)

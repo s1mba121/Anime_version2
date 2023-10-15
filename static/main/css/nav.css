@@ -7,6 +7,8 @@ header {
     top: 0;
     left: 0;
     margin: 0;
+    height: 88px;
+    width: 100%;
 }
 .nav_logo {
     width: 87px;
@@ -55,7 +57,7 @@ header {
     margin: 0;
 
     top: 35px;
-    left: 172px;
+    left: 210px;
 }
 .nav_ul a {
     text-decoration: none;
@@ -116,8 +118,8 @@ header {
     width: 167px;
     height: 40px;
 }
-.nav_input:focus {
-    border: 0;
+.search input[type="text"]:focus {
+    outline: none;
 }
 .search input[type="text"]::placeholder {
     color: #A0A0A0;
@@ -141,4 +143,5 @@ header {
 
     width: 41px;
     height: 40px;
+
 }

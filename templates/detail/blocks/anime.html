@@ -13,29 +13,29 @@
 <div class="wraper">
     <div class="content">
         <div class="bg"></div>
-        <nav class="nav">
-            <div class="container">
-                <a href="{% url 'main' %}"><img class="logo" src="{% static 'main/img/logo.png' %}" alt=""></a>
-                <ul>
-                    <li class="link active-link"><a href="{% url 'catalog_none' %}">Аниме</a></li>
-                    <li class="link"><a href="#">Релизы</a></li>
-                    <li class="link"><a href="#">Новинки</a></li>
-                    <li class="link"><a href="#">Коллекции</a></li>
-                    <li class="link"><a href="#"><i class="fa-solid fa-cube"></i> Рандом</a></li>
-                </ul>
-                <div class="header-blocks">
-                    <div class="search">
-                        <i class="fa-solid fa-magnifying-glass" id="button"></i>
-                        <input type="text">
-                    </div>
-                    <span>/</span>
-                    {% if user.is_authenticated != True %}
-                        <button class="login"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i> Войти</a></button>
-                    {% else %}
-                        <button class="login"><a href="{% url 'profile' %}">Профиль</a></button>
-                    {% endif %}
-                </div>
+        <nav class="nav_nav">
+            <div class="nav_logo">
+                <img src="{% static 'main/img/Ellipse 1636.svg' %}" alt="">
+                <h1>Ao</h1>
+                <h2>Spa</h2>
             </div>
+            <ul class="nav_ul">
+                <a href="{% url 'main' %}">Главная</a>
+                <a href="{% url 'catalog_none' %}">Каталог</a>
+                <a href="">Команда</a>
+                <a href="">Помочь проекту</a>
+            </ul>
+            <div class="search">
+                <button class="search_button"><img src="{% static 'main/img/search.png' %}" alt=""></button>
+                <input class="nav_input" type="text" placeholder="Поиск...">
+            </div>
+            <a class="notification" href=""><img src="{% static 'main/img/colocol.png' %}" alt=""></a>
+            {% if user.is_authenticated != True %}
+                <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
+            {% else %}
+                <a class="nav_profile" href="{% url 'profile' %}"><img src="{% static 'main/img/Ellipse 1637.png' %}" alt=""></a>
+            {% endif %}
+            
         </nav>
 
         <header class="header">
@@ -51,17 +51,16 @@
                                 <li><p><i class="fa-solid fa-star"></i>9 . 9</p></li>
                                 <li>2023</li>
                                 <li>1-8 серий</li>
-                                <li><i class="fa-solid fa-play"></i> Rus, Eng</li>
+                                <li><i class="fa-solid fa-play"></i> Rus</li>
                                 <li>14+</li>
                             </ul>
                         </div>
                         <ul class="static">
                             <li>Название: {{anime.title}}</li>
-                            <li>Оценка: 9.9</li>
-                            <li>Год выпуска: 2022</li>
+                            <li>Оценка: none</li>
+                            <li>Год выпуска: {{anime.premiere}}</li>
                             <li>Сезонов: 3</li>
                             <li>Серий: 26</li>
-                            <li>Краткое описание: описание</li>
                         </ul>
                         <div class="buttons-header-detail">
                             <button class="wathing"><a href="#">Смотреть онлайн</a></button>
@@ -121,11 +120,6 @@
                         </script>
                         <div class="controls">
                             <div class="select">
-                                <div class="oz">
-                                    <select name="" id="">
-                                        <option value="">Озвучка: AniDUB</option>
-                                    </select>
-                                </div>
                                 <div class="seria">
                                     <select name="" id="">
                                         {% for i in seria %}
@@ -189,47 +183,15 @@
             </div>
         </header>
 
-        <div class="comments">
-            <form action="{% url 'comment' anime.title %}" method="POST">
-                {% csrf_token %}
-                <h1>Коментарии</h1>
-                <input type="text" required name="comment" class="comment">
-                <button type="submit"><p>t</p><img src="{% static 'main/img/btn-img.png' %}" alt=""></button>
-            </form>
-            {% for i in comments %}
-                <p class="com">{{i.comment}}</p>
-            {% endfor %}
-        </div>
-
-        <footer class="footer">
-            <div class="container">
-                <div class="blocks-footer">
-                    <ul>
-                        <h1><img src="{% static 'main/img/logo-footer.png' %}" alt=""></h1>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Соглашение</a></li>
-                        <li><a href="#">Реклама</a></li>
-                        <li><a href="#">Заявка в команду</a></li>
-                    </ul>
-                    <ul>
-                        <h1>Помощь</h1>
-                        <li><a href="#">Вопросы и ответы</a></li>
-                        <li><a href="#">Востановление данных</a></li>
-                        <li><a href="#">Заказчикам</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                    <ul>
-                        <h1>Другое</h1>
-                        <li><a href="#">Донат</a></li>
-                        <li><a href="#">Жалоба</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pol">
-                <p>
-                    Сайт не несёт ответственности за его содержимое и<br>материал. В случае недопустимого содержимого,<br>отправьте нам письмо © «Kurosawa» 2022<br><a href="#">Политика конфидициальности</a>, <a href="#">условия использования</a>
-                </p>
-            </div>
+        <footer>
+            <h1>2023-Kurosawa</h1>
+            <a class="telegram" href=""><img src="img/telegram.png" alt=""></a>
+            <a class="discord" href=""><img src="img/discord.png" alt=""></a>
+            <a class="vk" href=""><img src="img/vk.png" alt=""></a>
+            <a class="youtube" href=""><img src="img/youtube.png" alt=""></a>
+            <a class="h" style="margin-left: 436px;" href="">Политика</a>
+            <a class="h" href="">Соглашение</a>
+            <a class="h" href="">Реклама</a>
         </footer> 
     </div>
 </div>

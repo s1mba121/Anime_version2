@@ -22,14 +22,14 @@ def index(request):
     animes.append(items[len(items) - 2])
     animes.append(items[len(items) - 1])
     
-    url = f"https://api.anilibria.tv/v2/searchTitles?search={mainAnime[0]}"
+    url = f"https://api.anilibria.tv/v3/searchTitles?search={mainAnime[0]}"
     req = requests.get(url)
     j = json.loads(req.text)
     
     data = {
         "items": animes,
         "item1": mainAnime[0],
-        "description": j[0]["description"],
+        "description": j["list"][0]["description"]
     }
     
     return render(request , 'main/blocks/index.html' , data)

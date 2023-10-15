@@ -179,7 +179,8 @@ body {
 }
 .logo {
     position: relative;
-    left: 93px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 19px;
 
     width: 90px;
@@ -204,7 +205,8 @@ body {
     margin: 0;
 
     top: 125.05px;
-    left: 103.6px;
+    left: 50%;
+    transform: translateX(-50%);
     
     color: #FFF;
     font-family: Montserrat;
@@ -215,6 +217,7 @@ body {
 }
 .profile_block h2 {
     position: absolute;
+    width: 172.2px;
 
     color: #FFF;
     font-family: Montserrat;
@@ -224,7 +227,8 @@ body {
     line-height: normal;
 
     top: 160px;
-    left: 61px;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 0 auto;
 }
 .admin {
@@ -242,7 +246,8 @@ body {
     background: #3E9355;
 
     top: 196px;
-    left: 66px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .admin h3 {
     color: #FFF;
@@ -277,10 +282,12 @@ body {
 }
 .profile_block h4 {
     position: absolute;
+    width: 216.8px;
     margin: 0;
 
     top: 253px;
-    left: 41px;
+    left: 50%;
+    transform: translateX(-50%);
 
     color: #FFF;
     font-family: Inter;

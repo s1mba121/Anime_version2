@@ -1,0 +1,71 @@
+:root {
+    --index: calc(1vh + 1vw);
+}
+
+.main-text h1 {
+    padding-bottom: 5px;
+}
+
+.row-special {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: calc(var(--index) * 1);
+    transition: all .5s;
+}
+
+.special {
+    z-index: 1;
+    position: relative;
+    width: 210%;
+    padding-bottom: 50px;
+    margin-top: 30px;
+}
+
+.next-btn {
+    position: absolute;
+    left: 47%;
+    top: 40%;
+    border-radius: 100%;
+    z-index: 2;
+    background: #fafafa;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.next-btn i {
+    color: #222;
+    font-size: calc(var(--index) * 1.5);
+    padding: 20% 20%;
+}
+
+.block {
+    width: calc(var(--index) * 9.5);
+    height: calc(var(--index) * 15);
+    background: #333;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+}
+
+.block h1 {
+    position: absolute;
+    font-size: calc(var(--index) * 0.8);
+    font-weight: 400;
+    bottom: 10px;
+    left: 10px;
+}
+
+.active-panel {
+    margin-left: -51.5%;
+    transition: all .5s;
+}
+
+.active-btn {
+    position: absolute;
+    transform: rotate(180deg);
+    top: 40%;
+    left: 50%;
+}

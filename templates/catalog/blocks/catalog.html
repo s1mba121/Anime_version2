@@ -6,48 +6,159 @@
 
 {% block content %}
 
-<nav class="nav_nav">
-    <div class="nav_logo">
-        <img src="{% static 'main/img/Ellipse 1636.svg' %}" alt="">
-        <h1>Ao</h1>
-        <h2>Spa</h2>
-    </div>
-    <ul class="nav_ul">
-        <a href="{% url 'main' %}">Главная</a>
-        <a href="{% url 'catalog_none' %}">Каталог</a>
-        <a href="">Команда</a>
-        <a href="">Помочь проекту</a>
-    </ul>
-    <div class="search">
-        <button class="search_button"><img src="{% static 'main/img/search.png' %}" alt=""></button>
-        <input class="nav_input" type="text" placeholder="Поиск...">
-    </div>
-    <a class="notification" href=""><img src="{% static 'main/img/colocol.png' %}" alt=""></a>
-    {% if user.is_authenticated != True %}
-        <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
-    {% else %}
-        <button class="nav_profile"><a href="{% url 'profile' %}">Профиль</a></button>
-    {% endif %}
-    
-</nav>
-<main>
-    <aside>
-        <div class="grid-container">
-            {% for i in data %}
-
-                <div class="grid-item" style=
-                "
-                background: url({{i.image.url}});
-                background-size: cover;
-                ">
-                
-                <div class="grid-text"><a href="{% url 'detail' i.title 1 %}"></a></div>
-
+<div class="wrapper">
+    <div class="content">
+        <nav class="nav_nav">
+            <div class="nav_logo">
+                <img src="{% static 'main/img/Ellipse 1636.svg' %}" alt="">
+                <h1>Ao</h1>
+                <h2>Spa</h2>
+            </div>
+            <ul class="nav_ul">
+                <a href="{% url 'main' %}">Главная</a>
+                <a href="{% url 'catalog_none' %}">Каталог</a>
+                <a href="">Команда</a>
+                <a href="">Помочь проекту</a>
+            </ul>
+            <div class="search">
+                <button class="search_button"><img src="{% static 'main/img/search.png' %}" alt=""></button>
+                <input class="nav_input" type="text" placeholder="Поиск...">
+            </div>
+            <a class="notification" href=""><img src="{% static 'main/img/colocol.png' %}" alt=""></a>
+            {% if user.is_authenticated != True %}
+                <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
+            {% else %}
+                <a class="nav_profile" href="{% url 'profile' %}"><img src="{% static 'main/img/Ellipse 1637.png' %}" alt=""></a>
+            {% endif %}
+        </nav>
+        <main>
+            <div class="title">
+                <h1 class="catalog_title">Релизы</h1>
+                <h2 class="catalog_subtitle">( 2213 )</h2>
+            </div>
+            <aside>
+                <div class="grid-container">
+                    {% for i in data %}
+        
+                        <div class="grid-item" style=
+                        "
+                        background: url({{i.image.url}});
+                        background-size: cover;
+                        ">
+                        
+                        <div class="grid-text"><a href="{% url 'detail' i.title 1 %}"></a></div>
+        
+                        </div>
+        
+                    {% endfor %}
                 </div>
+            </aside>
+            <div class="block">
+                <form action="{% url 'filters' %}" method="post">
 
-            {% endfor %}
-        </div>
-    </aside>
-</main>
+                    {% csrf_token %}
+
+                    <h1 class="block_title">Жанр</h1>
+                    <div class="block_checkbox">
+                        <div class="column_1">
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb1" name="fantastic">
+                                <label for="cb1">Фентези</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb2" name="comedy">
+                                <label for="cb2">Комедия</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb3" name="drama">
+                                <label for="cb3">Драма</label>
+                            </div>
+                          </div>
+                          
+                        <div class="column_2">
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb4" name="romantic">
+                                <label for="cb4">Романтика</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb5" name="cyberpank">
+                                <label for="cb5">Киберпанк</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb6" name="detective">
+                                <label for="cb6">Детектив</label>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 style="top: 35px;" class="block_title">Год</h2>
+                    <div class="block_year">
+                        <input class="block_year_input_1" type="number" placeholder="От">
+                        <input class="block_year_input_2" type="number" placeholder="До">
+                    </div>
+                    <h3 style="top: 60px;" class="block_title">Сезон</h3>
+                    <div class="block_checkbox_2">
+                        <div class="column_1">
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb7" name="winter">
+                                <label for="cb7">Зима</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb8" name="summer">
+                                <label for="cb8">Лето</label>
+                            </div>
+                          </div>
+                          
+                        <div class="column_2">
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb9" name="autumn">
+                                <label for="cb9">Осень</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb10" name="spring">
+                                <label for="cb10">Весна</label>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 style="top: 75px; margin-bottom: 15px;" class="block_title">Формат</h4>
+                    <div class="block_checkbox_3">
+                        <div class="column_1">
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb11" name="television_series">
+                                <label for="cb11">Сериал</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb12" name="movie">
+                                <label for="cb12">Фильм</label>
+                            </div>
+                          </div>
+                          
+                        <div class="column_2">
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb13" name="OVA">
+                                <label for="cb13">OVA</label>
+                            </div>
+                            <div class="checkbox_container_1">
+                                <input type="checkbox" id="cb14" name="ONA">
+                                <label for="cb14">ONA</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="save" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <h1>2023-Kurosawa</h1>
+            <a class="telegram" href=""><img src="img/telegram.png" alt=""></a>
+            <a class="discord" href=""><img src="img/discord.png" alt=""></a>
+            <a class="vk" href=""><img src="img/vk.png" alt=""></a>
+            <a class="youtube" href=""><img src="img/youtube.png" alt=""></a>
+            <a class="h" style="margin-left: 436px;" href="">Политика</a>
+            <a class="h" href="">Соглашение</a>
+            <a class="h" href="">Реклама</a>
+        </footer>
+
+    </div>
+</div>
 
 {% endblock %}

@@ -196,7 +196,9 @@ header
     font-weight: 400;
     line-height: normal;
 }
-
+.password[type="password"]:focus {
+    outline: none;
+}
 .password::placeholder
 {
     position: relative;

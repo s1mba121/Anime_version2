@@ -6,30 +6,65 @@
 
 {% block content %}
 
-<div class="loading"></div>
-<nav class="nav_nav">
-    <div class="nav_logo">
-        <img src="{% static 'main/img/Ellipse 1636.svg' %}" alt="">
-        <h1>Ao</h1>
-        <h2>Spa</h2>
+<div class="wrapper">
+    <div class="content">
+        <main class="cart_1">
+            <section>
+                <h1 class="title">Suzume</br>No Tojimari</h1>
+                <h2 class="subtitle">Школьница по имени Сузумэ жила обычной жизнью, пока не встретила очень загадочного парня. Этот парень закрывает некие двери, грозящие нашему миру страшными катаклизмами. Девушка решает помочь ему в его непростом деле, однако всё становится куда сложнее с появлением странного вида кота по имени Дайджин.</h2>
+                <a class="watch" href="/watch/%D0%A1%D1%83%D0%B4%D0%B7%D1%83%D0%BC%D1%8D,%20%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D0%B2%D0%B0%D1%8E%D1%89%D0%B0%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B8/1/">Смотреть</a>
+            </section>
+            <aside>
+                <h1 class="aside_title">топ аниме</h1>
+                <div class="anime">
+                    <ul style="display: flex;" id="slider">
+                        <li class="an1"></li>
+                        <li class="an2"></li>
+                        <li class="an3"></li>
+                        <li class="an4"></li>
+                        <li class="an5"></li>
+                    </ul>
+                </div>
+                <button class="back"><svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86" fill="none">
+                    <circle cx="43" cy="43" r="42" stroke="white" stroke-width="2"/>
+                    <path d="M51 28L34 42.5L51 57" stroke="#F0F0F0" stroke-width="4"/>
+                    </svg></button>
+                <button class="next"><svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86" fill="none">
+                    <circle cx="43" cy="43" r="42" stroke="white" stroke-width="2"/>
+                    <path d="M34 28L51 42.5L34 57" stroke="#F0F0F0" stroke-width="4"/>
+                  </svg></button>
+                <div style="position: relative; top: 264px; left: 580px;" class="line"><svg xmlns="http://www.w3.org/2000/svg" width="603" height="3" viewBox="0 0 603 3" fill="none">
+                    <path d="M0 1.5H602.5" stroke="#F0F0F0" stroke-width="2"/>
+                    </svg></div>
+                <h2 class="number">1</h2>
+                <h3 class="number0">0</h3>
+            </aside>
+        </main>
+        <nav class="nav_nav">
+            <div class="nav_logo">
+                <img src="{% static 'main/img/Ellipse 1636.svg' %}" alt="">
+                <h1>Ao</h1>
+                <h2>Spa</h2>
+            </div>
+            <ul class="nav_ul">
+                <a href="{% url 'main' %}">Главная</a>
+                <a href="{% url 'catalog_none' %}">Каталог</a>
+                <a href="">Команда</a>
+                <a href="">Помочь проекту</a>
+            </ul>
+            <div class="search">
+                <button class="search_button"><img src="{% static 'main/img/search.png' %}" alt=""></button>
+                <input class="nav_input" type="text" placeholder="Поиск...">
+            </div>
+            <a class="notification" href=""><img src="{% static 'main/img/colocol.png' %}" alt=""></a>
+            {% if user.is_authenticated != True %}
+                <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
+            {% else %}
+                <a class="nav_profile" href="{% url 'profile' %}"><img src="{% static 'main/img/Ellipse 1637.png' %}" alt=""></a>
+            {% endif %}
+        </nav>
+        
     </div>
-    <ul class="nav_ul">
-        <a href="{% url 'main' %}">Главная</a>
-        <a href="{% url 'catalog_none' %}">Каталог</a>
-        <a href="">Команда</a>
-        <a href="">Помочь проекту</a>
-    </ul>
-    <div class="search">
-        <button class="search_button"><img src="{% static 'main/img/search.png' %}" alt=""></button>
-        <input class="nav_input" type="text" placeholder="Поиск...">
-    </div>
-    <a class="notification" href=""><img src="{% static 'main/img/colocol.png' %}" alt=""></a>
-    {% if user.is_authenticated != True %}
-        <button class="nav_profile"><a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>Войти</a></button>
-    {% else %}
-        <button class="nav_profile"><a href="{% url 'profile' %}">Профиль</a></button>
-    {% endif %}
-    
-</nav>
+</div>
 
 {% endblock %}
